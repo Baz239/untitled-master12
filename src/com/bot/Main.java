@@ -84,16 +84,9 @@ public class Main {
                     if (N>0){
                         for (int i=0;i<N;i++){
                             Point b = new Point((int)(Math.random()*(frame.getWidth()-250)), (int)(Math.random()*frame.getHeight()), (double)Math.random()*10.0);
-                            int l = -1;
-                            int r = points.size();
-                            int m = (l + r) / 2;
-                            while (r > l + 1){
-                                if (points.get(m).weight > b.weight){
-                                    r = m;
-                                } else {
-                                    l = m;
-                                }
-                                m = (l + r) / 2;
+                            int r = 0;
+                            while (r != points.size() && points.get(r).weight < W) {
+                                r++;
                             }
                             points.add(r, b);
                             b.setBounds(b.x,b.y,b.x+3,b.y+3);
